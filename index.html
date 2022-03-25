@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Encryption</title>
+</head>
+<body>
+    <div class="container">
+        <div id="encryptionArea">
+            <label id="label">Enter message:</label>
+            <input type="text" id="insertedMessage"  placeholder="Insert message here">
+            
+        </div>
+        <div id="decriptionArea">
+            <label id="label">Enter key:</label>
+            <input type="text" id="insertedKey"  placeholder="Insert key here">
+        </div>
+        <div id="btns"> 
+            <button id="encryptBtn">Encryption</button>
+            <button id="decryptionBtn">Decription</button>
+        </div>    
+        <div>
+        <textarea readonly id="outputField" placeholder="Results"></textarea>
+        </div>
+        <div>
+            <button id="clearResults">Clear All</button> 
+            <button id="copyText">Copy text</button>    
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
