@@ -40,23 +40,29 @@
         let upMessage = message.toUpperCase().split('');
         let upKey = key.toUpperCase().split('');
         let sumOfIndex = [];
-   
+       
         for(let i = 0; i<upMessage.length; i++){
              if(upKey.length === 1){
                     sumOfIndex[i] = characters.indexOf(upMessage[i]) + characters.indexOf(upKey[0]);  
+
             }else{
                 if(i >= upKey.length){
-                    sumOfIndex[i]= characters.indexOf(upMessage[i]);
+                    upKey = upKey.concat(upKey);
+                    sumOfIndex[i]= characters.indexOf(upMessage[i]) + characters.indexOf(upKey[i]);
                 }else{
-                sumOfIndex[i] = characters.indexOf(upMessage[i]) + characters.indexOf(upKey[i]);
+                 sumOfIndex[i] = characters.indexOf(upMessage[i]) + characters.indexOf(upKey[i]);
                 }
             }
         }
-    
+       
             for(let j = 0; j<sumOfIndex.length; j++){
+                if(sumOfIndex[j] > 51){
+                    eMessage += characters[sumOfIndex[j]-52];
+                }else{
                 eMessage += characters[sumOfIndex[j]];
+                }
             }
-
+           
     
         return eMessage.toLowerCase();
     }
@@ -69,25 +75,28 @@
         let substractOfIndex = [];
 
         for(let i = 0; i<upMessage.length; i++){
-            if(characters.indexOf(upMessage[i]) - characters.indexOf(upKey[i]) < 0){
-                return 'The key-message combination is incorrect';
-               
-            }
+           
             if(upKey.length === 1){
                  substractOfIndex[i] = characters.indexOf(upMessage[i]) - characters.indexOf(upKey[0]);
             }else{
                 if(i >= upKey.length){
-                 substractOfIndex[i]= characters.indexOf(upMessage[i]);
+                    upKey = upKey.concat(upKey);
+                    substractOfIndex[i]= characters.indexOf(upMessage[i]) - characters.indexOf(upKey[i]);
                 }else{
                     substractOfIndex[i] = characters.indexOf(upMessage[i]) - characters.indexOf(upKey[i]);
                  }
         }
     }
-
+        console.log(substractOfIndex);
         for(let j = 0; j<substractOfIndex.length; j++){
+            if(substractOfIndex[j] < 0){
+                dMessage += characters[substractOfIndex[j]+52]
+                
+            }else{
             dMessage += characters[substractOfIndex[j]];
         }
-
+    }
+        console.log(dMessage);
       return dMessage.toLowerCase();
     }
 
